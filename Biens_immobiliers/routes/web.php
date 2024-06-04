@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentaireController;
 use App\Models\Categorie;
 use App\Http\Controllers\BienController;
 use App\Http\Controllers\AccueilController;
-use App\Http\Controllers\CommentaireController;
 
 Route::get('/', function () {
     return view('welcome');
