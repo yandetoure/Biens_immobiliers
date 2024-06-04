@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentaireController;
 use App\Models\Categorie;
 use App\Http\Controllers\BienController;
 use App\Http\Controllers\AccueilController;
-use App\Http\Controllers\CommentaireController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +34,11 @@ Route::put('/commentaires/{id}', [CommentaireController::class, 'modifierTraitem
 // Route pour supprimer un commentaire
 Route::delete('/commentaires/{id}', [CommentaireController::class, 'supprimer'])->name('commentaires.supprimer');
 
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+
+
+// Route group for categories
 Route::prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategorieController::class, 'index'])->name('index');
     Route::get('/create', [CategorieController::class, 'create'])->name('create');
