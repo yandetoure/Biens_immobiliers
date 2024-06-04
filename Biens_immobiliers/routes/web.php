@@ -7,6 +7,11 @@ use App\Http\Controllers\HomeController;
 use App\Models\Categorie;
 
 
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+
+
+// Route group for categories
 Route::prefix('categories')->name('categories.')->group(function () {
     Route::get('/', [CategorieController::class, 'index'])->name('index');
     Route::get('/create', [CategorieController::class, 'create'])->name('create');
