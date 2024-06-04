@@ -5,6 +5,21 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Models\Categorie;
+use App\Http\Controllers\BienController;
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\CommentaireController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/bien', [BienController::class, 'ListeBien'])->name('Bien.index');
+Route::get('/bien/{id}', [BienController::class, 'afficher_details'])->name('bien.details');
+Route::get('/ajouter', [BienController::class, 'ajouterBien']);
+Route::post('/ajouterBien/Traitement', [BienController::class, 'ajouterBienTraitement'])->name('Bien.ajouterBien');
+Route::get('/modifier-bien/{id}', [BienController::class, 'modifierBien'])->name('Bien.modifierBien');
+Route::post('/modifierBien/Traitement', [BienController::class, 'modifierBienTraitement'])->name('Bien.modifierBien');
+Route::get('/supprimer-bien/{id}', [BienController::class, 'supprimerBien'])->name('bien.supprimer');
 
 
 Route::prefix('categories')->name('categories.')->group(function () {
