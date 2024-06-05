@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CommentaireController;
+
+use App\Http\Controllers\AccueilController;
 use App\Models\Categorie;
 use App\Http\Controllers\BienController;
-use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentaireController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,4 +49,11 @@ Route::prefix('categories')->name('categories.')->group(function () {
     Route::put('/{categorie}', [CategorieController::class, 'update'])->name('update');
     Route::delete('/{categorie}', [CategorieController::class, 'destroy'])->name('destroy');
 });
+
+Route::get('/connexion', [AuthController::class, 'connexion'])->name('connexion');
+Route::post('/connexion', [AuthController::class, 'connexionPost'])->name('connexion');
+
+
+Route::get('/index', [AccueilController::class, 'index'])->name('index');
+Route::delete('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
 

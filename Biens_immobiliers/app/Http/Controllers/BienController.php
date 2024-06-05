@@ -18,7 +18,7 @@ class BienController extends Controller
     public function ajouterBienTraitement(Request $request){
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'required|string', 
             'adresse' => 'required|string',
             'statut' => 'required|in:occupe,pas_occupe',
             'image' => 'required',
