@@ -22,7 +22,7 @@
             <ul>
                 @foreach($errors->all() as $error)
                 <li class="alert alert-danger">{{ $error }}</li>
-                @endforeach
+                @endforeach                                                                                                                                                                                                                                                                                                               ùùùùmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
             </ul>
 
             <form action="/modifierBien/Traitement" method="POST" class="form-group" enctype="multipart/form-data"> 
@@ -37,11 +37,16 @@
                     <label for="Description" class="form-label">Description</label>
                     <input type="text" class="form-control" id="Description" name="description" value="{{ $bien->description }}">
                 </div>
+                  
+    <div class="form-group">
+        <label for="categorie_id" class="form-label">Catégorie</label>
+        <select class="form-select" id="categorie_id" name="categorie_id" required>
+            @foreach($categories as $categorie)
+                <option value="{{ $categorie->id }}" @if($bien->categorie_id == $categorie->id) selected @endif>{{ $categorie->libelle }}</option>
+            @endforeach
+        </select>
+    </div>
                 <div class="form-group">
-                    <label for="Date_de_creation" class="form-label">Catégorie</label>
-                    <input type="text" class="form-control" id="Date_de_creation" name="categorie_id" value="{{ $bien->categorie->libelle }}">
-                </div>
-                <div class="mb-3">
                     <label for="image" class="form-label">Veuillez mettre l'URL de l'image</label>
                     <input class="form-control" type="text" id="image" name="image" value="{{ $bien->image }}">
                 </div>
