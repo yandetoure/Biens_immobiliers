@@ -68,7 +68,7 @@ class AuthController extends Controller
 
         $user->save();
 
-        return back()->with('success', 'Compte crée avec succés connectez vous');
+        return back()->with('success', 'Compte créé avec succés connectez vous');
     }
 
     public function login(){

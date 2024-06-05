@@ -35,39 +35,39 @@
         .form-control {
             border-radius: 5px;
         }
+        .alert {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-4">Inscription</h2>
-      <div class="card-body">
-        @if(Session::has('success'))
-        <div class="alert alert-success" role="alert">
-            {{ Session::get('success') }}
+        <div class="card-body">
+            @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('success') }}
+            </div>
+            @endif
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label">Nom complet</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Saisissez votre nom" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="exemple@gmail.com" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="***********" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Inscription</button>
+                </div>
+            </form>
         </div>
-        @endif
-        <form action="{{route('register')}}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="name" class="label-form">Nom complet</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="Saisissez votre nom" >
-            </div>
-            <div class="mb-3">
-                <label for="email" class="label-form">Nom email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="exemple@gmail.com" >
-            </div>
-            <div class="mb-3">
-                <label for="password" class="label-form">Mot de passe</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="***********" >
-            </div>
-            <div class="mb-3">
-        <div class="d-grid">
-            <button class="btn btn-primary">Inscription</button>
-        </div>
-      </div>
-        </form>
-      </div>
- 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

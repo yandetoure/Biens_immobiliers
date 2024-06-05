@@ -9,7 +9,7 @@ class Commentaire extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['bien_id', 'contenu', 'auteur'];
+    protected $fillable = ['bien_id', 'contenu', 'nom_auteur'];
 
 
     public function Bien()

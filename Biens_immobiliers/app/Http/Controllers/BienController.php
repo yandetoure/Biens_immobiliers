@@ -57,10 +57,10 @@ class BienController extends Controller
         return view('bien.listeBiens', compact('biens'));
     }
 
-    public function afficher_details($id)
-    {
+    public function afficher_details($id){
+        $categories = Categorie::all();
         $bien = Bien::findOrFail($id);
-        return view('bien.details', compact('bien'));
+        return view('bien.details', compact('bien', 'categories'));
     }
 
     // App\Http\Controllers\BienController.php
@@ -72,7 +72,7 @@ class BienController extends Controller
     {
         $categories = Categorie::all();
         $bien = Bien::findOrFail($id);
-        return view('Bien.modifierBien', compact('bien', 'categories'));
+        return view('bien.modifierBien', compact('bien', 'categories'));
 
     }
 

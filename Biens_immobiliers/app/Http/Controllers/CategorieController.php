@@ -20,12 +20,11 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'libelle' => 'required|string|max:255',
+            'libelle' => 'required',
         ]);
 
         Categorie::create($request->all());
-        return redirect()->route('categories.index')
-                         ->with('success', 'Category created successfully.');
+        return redirect()->route('categories.index')->with('success', 'Catégorie ajoutée avec succés.');
     }
 
     public function show(Categorie $categorie)
@@ -46,13 +45,13 @@ class CategorieController extends Controller
 
         $categorie->update($request->all());
         return redirect()->route('categories.index')
-                         ->with('success', 'Category updated successfully.');
+                         ->with('success', 'Catégorie modifiée avec succés.');
     }
 
     public function destroy(Categorie $categorie)
     {
         $categorie->delete();
         return redirect()->route('categories.index')
-                         ->with('success', 'Category deleted successfully.');
+                         ->with('success', 'Catégorie supprimée avec succés .');
     }
 }
