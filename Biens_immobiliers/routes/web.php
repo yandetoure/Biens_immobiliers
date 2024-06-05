@@ -18,9 +18,9 @@ Route::get('/', function () {
 Route::get('/bien', [BienController::class, 'ListeBien'])->name('Bien.index');
 Route::get('/bien/{id}', [BienController::class, 'afficher_details'])->name('bien.details');
 Route::get('/ajouter', [BienController::class, 'ajouterBien']);
-Route::post('/ajouterBien/Traitement', [BienController::class, 'ajouterBienTraitement'])->name('Bien.ajouterBien');
+Route::post('/ajouterBien/Traitement', [BienController::class, 'ajouterBienTraitement'])->name('bien.ajouterBien');
 Route::get('/modifier-bien/{id}', [BienController::class, 'modifierBien'])->name('Bien.modifierBien');
-Route::post('/modifierBien/Traitement', [BienController::class, 'modifierBienTraitement'])->name('Bien.modifierBien');
+Route::post('/modifierBien/Traitement', [BienController::class, 'modifierBienTraitement']);
 Route::get('/supprimer-bien/{id}', [BienController::class, 'supprimerBien'])->name('bien.supprimer');
 
 
@@ -36,7 +36,7 @@ Route::put('/commentaires/{id}', [CommentaireController::class, 'modifierTraitem
 // Route pour supprimer un commentaire
 Route::delete('/commentaires/{id}', [CommentaireController::class, 'supprimer'])->name('commentaires.supprimer');
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
 
 
@@ -51,7 +51,7 @@ Route::prefix('categories')->name('categories.')->group(function () {
 });
 
 Route::get('/connexion', [AuthController::class, 'connexion'])->name('connexion');
-Route::post('/connexion', [AuthController::class, 'connexionPost'])->name('connexion');
+Route::post('/connexion', [AuthController::class, 'connexionPost'])->name('connexion.post');
 
 
 Route::get('/index', [AccueilController::class, 'index'])->name('index');
