@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bien;
 use Illuminate\Http\Request;
 
 class AccueilController extends Controller
 {
     public function index (){
-        return view('accueil');
+        $biens = Bien::all();
+        return view('accueil', compact('biens'));
     }
-
+  
     
 }
