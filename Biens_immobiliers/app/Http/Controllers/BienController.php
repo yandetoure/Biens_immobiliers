@@ -72,7 +72,7 @@ class BienController extends Controller
     {
         $categories = Categorie::all();
         $bien = Bien::findOrFail($id);
-        return view('Bien.modifierBien', compact('bien', 'categories'));
+        return view('bien.modifierBien', compact('bien', 'categories'));
 
     }
 

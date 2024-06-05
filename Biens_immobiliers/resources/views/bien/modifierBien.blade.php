@@ -22,7 +22,7 @@
             <ul>
                 @foreach($errors->all() as $error)
                 <li class="alert alert-danger">{{ $error }}</li>
-                @endforeach                                                                                                                                                                                                                                                                                                               ùùùùmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+                @endforeach                                                                                                                                                                                                                                                                                                               
             </ul>
 
             <form action="/modifierBien/Traitement" method="POST" class="form-group" enctype="multipart/form-data"> 
