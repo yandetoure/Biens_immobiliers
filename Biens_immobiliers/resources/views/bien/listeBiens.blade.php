@@ -27,7 +27,7 @@
           @foreach($biens as $bien)
             <div class="col-md-4 mb-4">
               <div class="card">
-                <img src="{{ $bien->image }}" class="card-img-top" alt="{{ $bien->nom }}">
+                <img src="{{ $bien->image }}" class="card-img-top" alt="{{ $bien->nom }}" height="300">
                 <div class="card-body">
                   <h5 class="card-title">{{ $bien->nom }}</h5>
                   {{-- <p class="card-text">{{ $bien->description }}</p> --}}
@@ -37,8 +37,7 @@
                   <a href="/supprimer-bien/{{ $bien->id }}" class="btn btn-danger">Supprimer</a>
                   <br>
                   <br>
-                  <a href="#" class="btn btn-primary">Voir les détails</i></a>
-                </div>
+                  <a href="{{ route('bien.details', $bien->id) }}" class="btn btn-primary">Voir les détails</a>                </div>
               </div>
             </div>
           @endforeach

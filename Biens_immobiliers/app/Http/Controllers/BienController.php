@@ -56,8 +56,9 @@ class BienController extends Controller
     }
 
     public function afficher_details($id){
+        $categories = Categorie::all();
         $bien = Bien::findOrFail($id);
-        return view('bien.details', compact('bien'));
+        return view('bien.details', compact('bien', 'categories'));
     }
 
     // App\Http\Controllers\BienController.php
@@ -67,8 +68,9 @@ class BienController extends Controller
     
     public function modifierBien($id)
     {
+        $categories = Categorie::all();
         $bien = Bien::findOrFail($id);
-        return view('Bien.modifierBien', compact('bien'));
+        return view('bien.modifierBien', compact('bien', 'categories'),);
     }
 
     public function modifierBienTraitement(Request $request) {
@@ -93,7 +95,7 @@ class BienController extends Controller
         $bien = bien::findOrFail($id);
         $bien->delete();
 
-        return redirect()->route('bien.index')->with('status', "Le bien a bien été supprimé avec succès");
+        return redirect()->route('Bien.index')->with('status', "Le bien a bien été supprimé avec succès");
     }
     
 }

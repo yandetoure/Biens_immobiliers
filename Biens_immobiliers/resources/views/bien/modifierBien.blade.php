@@ -38,9 +38,13 @@
                     <input type="text" class="form-control" id="Description" name="description" value="{{ $bien->description }}">
                 </div>
                 <div class="form-group">
-                    <label for="Date_de_creation" class="form-label">Catégorie</label>
-                    <input type="text" class="form-control" id="Date_de_creation" name="categorie_id" value="{{ $bien->categorie->libelle }}">
-                </div>
+            <label for="categorie_id">Categorie</label>
+            <select name="categorie_id" class="form-control" required>
+                @foreach($categories as $categorie)
+                    <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                @endforeach
+            </select>
+        </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Veuillez mettre l'URL de l'image</label>
                     <input class="form-control" type="text" id="image" name="image" value="{{ $bien->image }}">

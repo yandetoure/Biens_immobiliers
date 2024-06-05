@@ -14,8 +14,10 @@
       <div class="card-body">
         <h5 class="card-title">{{ $bien->nom }}</h5>
         <p class="card-text">{{ $bien->description }}</p>
-        <p class="card-text"><small class="text-muted">{{ $bien->categorie->libelle }}</small></p>
-        <p class="card-text"><small class="text-muted">{{ $bien->created_at }}</small></p
+        @foreach ($categories as $categorie)
+        <p class="card-text"><small class="text-muted">{{ $categorie->libelle }}</small></p>
+        @endforeach
+        <p class="card-text"><small class="text-muted">{{ $bien->created_at }}</small></p>
         <p class="card-text"><strong>Statut:</strong> {{ $bien->statut ? 'occupe' : 'pas_occupe' }}</p>
       </div>
     </div>
@@ -50,11 +52,8 @@
         @csrf
         <input type="hidden" name="bien_id" value="{{ $bien->id }}">
         <div class="mb-3">
-            <label for="auteur" class="form-label">Auteur</label>
-            <input type="text" class="form-control" id="auteur" name="auteur" required>
-            <br>
-            <label for="created_at" class="form-label">Date et Heure de Création</label>
-            <input type="datetime-local" class="form-control" id="created_at" name="created_at" required>
+            <label for="nom_auteur" class="form-label">Auteur</label>
+            <input type="text" class="form-control" id="nom_auteur" name="nom_auteur" required>
             <br>
             <label for="contenu" class="form-label">Commentaire</label>
             <textarea class="form-control" id="contenu" name="contenu" rows="3" required></textarea>
