@@ -30,10 +30,42 @@
     </nav>
  
     <div class="container">
-        
+        <a href="/ajouter" class="btn btn-primary mb-3">Ajouter des biens</a>
+        <hr>
+        @if(session('status'))
+          <div class="alert alert-success">
+            {{ session('status') }}
+          </div>
+        @endif
+
+        <div class="row">
+          @foreach($biens as $bien)
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="{{ $bien->image }}" class="card-img-top" alt="{{ $bien->nom }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $bien->nom }}</h5>
+                  {{-- <p class="card-text">{{ $bien->description }}</p> --}}
+                  <p class="card-text"><small class="text-muted">{{ $bien->date_de_creation }}</small></p>
+                  <p class="card-text"><strong>Statut:</strong> {{ $bien->statut ? 'occupe' : 'pas_occupe' }}</p>
+               
+                  <a href="#" class="btn btn-primary">Voir les détails</i></a>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+  </div>
+
         
         @if(!Auth::user())
         <h1> Bienvenue, {{ Auth::user()->name }}</h1>
+        <a href="/modifier-bien/{{ $bien->id }}" class="btn btn-info">Modifier</a>
+        <a href="/supprimer-bien/{{ $bien->id }}" class="btn btn-danger">Supprimer</a>
+        <br>
+        <br>
         @endif
 
        <h1>test</h1>
