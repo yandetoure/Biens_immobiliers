@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laravel 10 Custom Login and Registration</title>
+  <title>CrUD Biens</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <style>
@@ -29,7 +29,7 @@
             @guest
             <form action="{{ route('deconnexion') }}" method="POST" class="d-flex" role="search">
                 @csrf
-                @method('DELETE')
+                @method('POST')
                 <button class="btn btn-danger" type="submit">Connexion</button>
             </form>
         @endguest
@@ -51,13 +51,7 @@
         </div>
     @endif
 
-    @auth
-        <div class="row mb-4">
-            <div class="col">
-                <a href="/ajouter" class="btn btn-primary">Ajouter des biens</a>
-            </div>
-        </div>
-    @endauth
+   
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -85,7 +79,21 @@
             <span class="visually-hidden">Suivant</span>
         </button>
     </div>
-
+    <hr>
+    @auth
+    <div class="row mb-4">
+        <div class="col">
+            <a href="/ajouter" class="btn btn-primary">Ajouter des biens</a>
+        </div>
+    </div>
+@endauth
+@auth
+<div class="row mb-4">
+    <div class="col">
+        <a href="/categories" class="btn btn-primary">Gestion des catégories</a>
+    </div>
+</div>
+@endauth
     <hr>
 
     <div class="row">
