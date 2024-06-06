@@ -27,7 +27,7 @@
           @foreach($biens as $bien)
             <div class="col-md-4 mb-4">
               <div class="card">
-                <img src="{{ $bien->image }}" class="card-img-top" alt="{{ $bien->nom }}">
+                <img src="{{ $bien->image }}" class="card-img-top" alt="{{ $bien->nom }}" height="300">
                 <div class="card-body">
                   <h5 class="card-title">{{ $bien->nom }}</h5>
                   {{-- <p class="card-text">{{ $bien->description }}</p> --}}

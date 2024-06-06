@@ -43,8 +43,8 @@
           </div>
           <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
-          </div>
+    <input type="text" class="form-control" id="image" name="image"  required>
+  </div>
           <div class="mb-3">
             <label for="adresse" class="form-label">Adresse</label>
             <input type="text" class="form-control" id="adresse" name="adresse">

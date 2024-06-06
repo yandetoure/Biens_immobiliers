@@ -15,30 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bien', [BienController::class, 'ListeBien'])->name('Bien.index');
+
+// Routes protégées par le middleware 'auth'
 Route::get('/bien/{id}', [BienController::class, 'afficher_details'])->name('bien.details');
-Route::get('/ajouter', [BienController::class, 'ajouterBien']);
-Route::post('/ajouterBien/Traitement', [BienController::class, 'ajouterBienTraitement'])->name('bien.ajouterBien');
-Route::get('/modifier-bien/{id}', [BienController::class, 'modifierBien'])->name('Bien.modifierBien');
-Route::post('/modifierBien/Traitement', [BienController::class, 'modifierBienTraitement']);
-Route::get('/supprimer-bien/{id}', [BienController::class, 'supprimerBien'])->name('bien.supprimer');
-
-
-// Route pour créer un nouveau commentaire
-Route::post('/commentaires', [CommentaireController::class, 'store'])->name('commentaires.store');
-
-// Route pour afficher le formulaire de modification d'un commentaire
-Route::get('/commentaires/{id}/modifier', [CommentaireController::class, 'modifier'])->name('commentaires.mettre_a_jour');
-
-// Route pour mettre à jour un commentaire
-Route::put('/commentaires/{id}', [CommentaireController::class, 'modifierTraitement'])->name('commentaires.modifier');
-
-// Route pour supprimer un commentaire
-Route::delete('/commentaires/{id}', [CommentaireController::class, 'supprimer'])->name('commentaires.supprimer');
-
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-
+Route::middleware('auth')->group(function () {
+    Route::get('/bien', [BienController::class, 'ListeBien'])->name('Bien.index');
+    Route::get('/ajouter', [BienController::class, 'ajouterBien']);
+    Route::post('/ajouterBien/Traitement', [BienController::class, 'ajouterBienTraitement'])->name('bien.ajouterBien');
+    Route::get('/modifier-bien/{id}', [BienController::class, 'modifierBien'])->name('Bien.modifierBien');
+    Route::post('/modifierBien/Traitement', [BienController::class, 'modifierBienTraitement']);
+    Route::get('/supprimer-bien/{id}', [BienController::class, 'supprimerBien'])->name('bien.supprimer');
+    
+});
+    // Routes pour les commentaires
+    Route::post('/commentaires', [CommentaireController::class, 'store'])->name('commentaires.store');
+    Route::get('/commentaires/{id}/modifier', [CommentaireController::class, 'modifier'])->name('commentaires.mettre_a_jour');
+    Route::put('/commentaires/{id}', [CommentaireController::class, 'modifierTraitement'])->name('commentaires.modifier');
+    Route::delete('/commentaires/{id}', [CommentaireController::class, 'supprimer'])->name('commentaires.supprimer');
 
 // Route group for categories
 Route::prefix('categories')->name('categories.')->group(function () {
@@ -50,10 +43,17 @@ Route::prefix('categories')->name('categories.')->group(function () {
     Route::delete('/{categorie}', [CategorieController::class, 'destroy'])->name('destroy');
 });
 
-Route::get('/connexion', [AuthController::class, 'connexion'])->name('connexion');
-Route::post('/connexion', [AuthController::class, 'connexionPost'])->name('connexion.post');
 
+
+
+
+
+Route::get('/connexion', [AuthController::class, 'connexion'])->name('connexion');
+Route::group(['middleware' => 'guest'],function(){
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+    Route::post('/connexion', [AuthController::class, 'connexionPost'])->name('connexion.post');
+});
 
 Route::get('/index', [AccueilController::class, 'index'])->name('index');
-Route::delete('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
-
+    Route::delete('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
