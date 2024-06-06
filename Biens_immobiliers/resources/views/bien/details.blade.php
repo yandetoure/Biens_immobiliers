@@ -61,8 +61,7 @@
           <p class="card-text"><small class="text-muted">{{ $bien->created_at->format('d M Y, H:i') }}</small></p>
           <p class="card-text"><strong>Statut:</strong> <span class="badge {{ $bien->statut ? 'bg-success' : 'bg-warning' }}">{{ $bien->statut ? 'occupé' : 'non occupé' }}</span></p>
         </div>
-      </div>
-    </div>
+
 
     <div class="comments-section">
       <h4>Commentaires</h4>
@@ -102,6 +101,7 @@
           <label for="contenu" class="form-label">Commentaire</label>
           <textarea class="form-control" id="contenu" name="contenu" rows="3" required></textarea>
         </div>
+
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>

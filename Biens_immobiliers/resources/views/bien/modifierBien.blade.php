@@ -22,7 +22,7 @@
             <ul>
                 @foreach($errors->all() as $error)
                 <li class="alert alert-danger">{{ $error }}</li>
-                @endforeach                                                                                                                                                                                                                                                                                                               ùùùùmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+                @endforeach                                                                                                                                                                                                                                                                                                               
             </ul>
 
             <form action="/modifierBien/Traitement" method="POST" class="form-group" enctype="multipart/form-data"> 
@@ -46,7 +46,7 @@
             @endforeach
         </select>
     </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="image" class="form-label">Veuillez mettre l'URL de l'image</label>
                     <input class="form-control" type="text" id="image" name="image" value="{{ $bien->image }}">
                 </div>
@@ -67,7 +67,7 @@
                 <br><br>
                 <button type="submit" class="btn btn-primary">modifier un bien</button>
                 <br><br>
-                <a href="/article" class="btn btn-danger">Retour</a>
+                <a href="/bien" class="btn btn-danger">Retour</a>
             </form>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

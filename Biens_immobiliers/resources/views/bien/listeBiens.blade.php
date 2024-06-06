@@ -35,10 +35,10 @@
                   <p class="card-text"><strong>Statut:</strong> {{ $bien->statut ? 'occupe' : 'pas_occupe' }}</p>
                   <a href="/modifier-bien/{{ $bien->id }}" class="btn btn-info">Modifier</a>
                   <a href="/supprimer-bien/{{ $bien->id }}" class="btn btn-danger">Supprimer</a>
+                  <a href="{{ route('bien.details', $bien->id) }}" class="btn btn-primary">Voir les détails</a>                </div>
+
                   <br>
                   <br>
-                  <a href="{{ route('bien.details', $bien->id) }}" class="btn btn-primary">Voir les détails</a>
-                </div>
               </div>
             </div>
           @endforeach
